@@ -1,0 +1,22 @@
+open jenkins
+click on manage jenkins
+click on plugins
+click on available plugins
+search for "HTML publisher"
+select and install
+go to dashboard
+
+click on new item
+give the project name 
+click on freestyle project
+click ok
+select git as source code management
+provide github url
+click on add post build actions 
+click on publish html reports   //make sure you have the html file in your github repo
+click on add
+provide html directory as .
+provide index pages as your html file name
+click on save
+
+to view output click on html report in the project which is present under configure project tab
