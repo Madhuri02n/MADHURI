@@ -1,0 +1,49 @@
+
+create a directory in your system
+>mkdir my-app
+>cd mp-app
+create hello.py file and add following 
+print("hello world")
+
+
+create "Dockerfile" and add following 
+
+FROM python
+
+WORKDIR /app  
+
+COPY . /app
+
+CMD ["python", "hello.py"]
+
+use the following commands to create docker image
+
+make sure docker desktop is running
+
+in your project directory run the following
+>docker build -t image-name .
+>docker run image-name
+
+
+
+
+docker build -t imagename .  ------ builds and image along with container
+
+docker run imagename  ----runs the container
+
+docker ps -a  -----displays container id with info
+
+docker logs containerid
+
+docker rm containerid ----delete container
+
+docker image ls ---display images
+
+docker image rm imageid ----remove image
+
+docker login ---used to login
+
+docker pull imagename ----pull the docker images from docker hub
+
+docker push imagename ----push the docker images to the docker hub
+
