@@ -20,3 +20,24 @@ provide index pages as your html file name
 click on save
 
 to view output click on html report in the project which is present under configure project tab
+
+
+
+
+open jenkins
+click on new item
+give the project name 
+click on freestyle project
+click ok
+select git as source code management
+provide github url
+click on add post build actions 
+click on execute windows batch command
+
+provide python.exe url and file name which is present in github repo
+//to find python url use cmd in windows and type >where python
+example:
+C:\Users\anjal\AppData\Local\Programs\Python\Python311\python.exe hello.py
+
+click on save
+click on build and view console output
