@@ -1,0 +1,54 @@
+const { Builder, By, Key, until } = require("selenium-webdriver");
+
+async function example() {
+    console.log("Launching browser...");
+    let driver = await new Builder().forBrowser("firefox").build();
+
+    console.log("Navigating to Google...");
+    await driver.get("http://google.com");
+
+    console.log("Performing search for 'selenium'...");
+    await driver.findElement(By.name("q")).sendKeys("selenium", Key.RETURN);
+
+    console.log("Waiting for title to contain 'selenium'...");
+    await driver.wait(until.titleContains('selenium'), 5000); // 5-second timeout
+
+    console.log("Search completed.");
+
+    // Uncomment the next line to close the browser when done
+    // await driver.quit();
+    console.log("Browser will remain open (uncomment to close).");
+}
+
+example();
+
+
+const { Builder, By, Key, until } = require('selenium-webdriver');
+
+async function example() {
+    const driver = await new Builder().forBrowser('chrome').build();
+
+    // Open Google
+    await driver.get('https://www.google.com');
+    await driver.wait(until.titleContains('Google'), 10000);
+    console.log('Test Case 1 Passed: Title contains "Google"');
+
+    // Perform a search
+    await driver.findElement(By.name('q')).sendKeys('Selenium', Key.RETURN);
+    await driver.wait(until.titleContains('Selenium'), 10000);
+    console.log('Test Case 2 Passed: Title contains "Selenium"');
+
+    // Verify search results are found
+    const searchResults = await driver.findElements(By.css('div.g'));
+    console.log(`Test Case 3 Passed: Found ${searchResults.length} search results`);
+
+    // Check if search input box is displayed
+    const isSearchInputDisplayed = await driver.findElement(By.name('q')).isDisplayed();
+    console.log(`Test Case 4 Passed: Search input box is displayed: ${isSearchInputDisplayed}`);
+
+    // Close the browser
+    await driver.quit();
+}
+
+example();
+
